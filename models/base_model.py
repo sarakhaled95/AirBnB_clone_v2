@@ -9,13 +9,14 @@ import models
 
 Base = declarative_base()
 
+
 class BaseModel:
     """A base class for all hbnb models"""
-    
+
     id = Column(String(60), unique=True, nullable=False, primary_key=True)
     created_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
     updated_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
-    
+
     def __init__(self, *args, **kwargs):
         """Instatntiates a new model"""
         if kwargs:
@@ -54,7 +55,7 @@ class BaseModel:
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
         return dictionary
-    
+
     def delete(self):
         """ delete object existing"""
         models.storage.delete(self)

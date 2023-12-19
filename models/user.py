@@ -10,7 +10,7 @@ from models.review import Review
 
 class User(BaseModel, Base):
     """This is the class for user
-    Attributes:
+    Attr:
         email: email address
         password: password for you login
         first_name: first name

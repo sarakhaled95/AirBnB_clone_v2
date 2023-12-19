@@ -121,7 +121,7 @@ class HBNBCommand(cmd.Cmd):
             if not class_name:
                 print("** class name missing **")
                 return
-            elif class_name not in HBNBC.classes:
+            elif class_name not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
             all_list = args.split(" ")
@@ -142,7 +142,7 @@ class HBNBCommand(cmd.Cmd):
 
             storage.new(new_instance)
             print(new_instance.id)
-            new.instance.save()
+            new_instance.save()
 
     def help_create(self):
         """ Help information for the create method """
@@ -337,6 +337,7 @@ class HBNBCommand(cmd.Cmd):
         """ Help information for the update class """
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()

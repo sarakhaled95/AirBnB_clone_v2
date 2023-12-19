@@ -117,39 +117,31 @@ class HBNBCommand(cmd.Cmd):
         """ Create an object of any class"""
         try:
             class_name = arg.split(" ")[0]
-            if len(class_name) == 0:
+        except IndexError:
+            if not class_name:
                 print("** class name missing **")
                 return
-            if class_name and class_name not in self.valid_classes:
+            elif class_name not in HBNBC.classes:
                 print("** class doesn't exist **")
                 return
+            all_list = args.split(" ")
+            new_instance = eval(class_name)()
 
-            kwargs = {}
-            commands = arg.split(" ")
-            for i in range(1, len(commands)):
-                
-                key = commands[i].split("=")[0]
-                value = commands[i].split("=")[1]
-                #key, value = tuple(commands[i].split("="))
+            for i in range(1, len(all_list)):
+                key, value = tuple(all_list[i].split("="))
                 if value.startswith('"'):
                     value = value.strip('"').replace("_", " ")
                 else:
                     try:
                         value = eval(value)
-                    except (SyntaxError, NameError):
-                        continue
-                kwargs[key] = value
+                    except Exception:
+                        print(f"** couldnt evaluate {value}")
+                        pass
+                if hasattr(new_instance, key):
+                    setattr(new_instance, key, value)
 
-            if kwargs == {}:
-                new_instance = eval(class_name)()
-            else:
-                new_instance = eval(class_name)(**kwargs)
             storage.new(new_instance)
             print(new_instance.id)
-            storage.save()
-        except ValueError:
-            print(ValueError)
-            return
 
     def help_create(self):
         """ Help information for the create method """

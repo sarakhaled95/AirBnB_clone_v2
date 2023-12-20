@@ -4,7 +4,6 @@ from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String
 from models.place import place_amenity
-from models.engine import db_storage
 
 
 class Amenity(BaseModel, Base):

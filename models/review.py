@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """ Review module for the HBNB project """
-from models.base_model import BaseModel, Base
 from sqlalchemy.ext.declarative import declarative_base
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String, ForeignKey, Float
-from models.engine import db_storage
 
 
 class Review(BaseModel, Base):

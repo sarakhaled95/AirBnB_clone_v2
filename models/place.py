@@ -5,10 +5,9 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
 from sqlalchemy.orm import relationship
 from os import getenv
-from models import Amenity
+from models.amenity import Amenity
 import shlex
 import models
-from models.engine import db_storage
 
 
 place_amenity = Table("place_amenity", Base.metadata,

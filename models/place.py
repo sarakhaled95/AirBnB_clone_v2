@@ -8,6 +8,7 @@ from os import getenv
 from models import Amenity
 import shlex
 import models
+from models.engine import db_storage
 
 
 place_amenity = Table("place_amenity", Base.metadata,

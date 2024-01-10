@@ -4,8 +4,11 @@ distributes an archive to your web servers, using the function
 """
 
 
-from fabric.api import
+from fabric.api import *
 from os.path import exists
+from datetime import datetime
+
+
 env.hosts = ['54.157.145.55', '100.25.139.164']
 
 

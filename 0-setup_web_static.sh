@@ -4,16 +4,16 @@
 sudo apt-get update
 sudo apt-get -y install nginx
 
-mkdir -p /data/web_static/releases/test/
-mkdir -p /data/web_static/shared/
-touch /data/web_static/releases/test/index.html
-echo "Holberton School" > /data/web_static/releases/test/index.html
-ln -sf /data/web_static/releases/test/ /data/web_static/current
+sudo mkdir -p /data/web_static/releases/test/
+sudo mkdir -p /data/web_static/shared/
+sudo touch /data/web_static/releases/test/index.html
+sudo echo "Holberton School" > /data/web_static/releases/test/index.html
+sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
-chown -R ubuntu /data/
-chgrp -R ubuntu /data/
+sudo chown -R ubuntu /data/
+sudo chgrp -R ubuntu /data/
 
-printf %s "server {
+sudo printf %s "server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 	add_header X-Served-By $hostname;
@@ -32,4 +32,4 @@ printf %s "server {
 		internal;
 	}" > /etc/nginx/sites-available/default
 
-service nginx restart
+sudo service nginx restart

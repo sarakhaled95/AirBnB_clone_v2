@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" Fabric script (based on the file 2-do_deploy_web_static.py) that creates and distributes an archive to your web servers, using the function deploy: """
+""" Fabric script (based on the file 2-do_deploy_web_static.py) that
+creates and distributes an archive to your web servers
+using the function deploy: """
 
 
 from fabric.api import *
@@ -32,8 +34,8 @@ def do_deploy(archive_path):
 
     try:
         filename = archive_path.split('/')[-1]
-        no_tgz = filename.split('.')[0])
-        path = "/data/web_static/releases/
+        no_tgz = filename.split('.')[0]
+        path = "/data/web_static/releases/"
         put(archive_path, '/tmp/')
         run("mkdir -p {}{}/".format(path, no_tgz))
         run("tar -xzf /tmp/{} -C {}{}/".format(filename, path, no_tgz))

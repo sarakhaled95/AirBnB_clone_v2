@@ -2,24 +2,27 @@
 """ starts a Flask web application """
 
 from flask import Flask
-
 web_flask = Flask(__name__)
+
 
 @web_flask.route("/", strict_slashes=False)
 def hello_route():
     """ hello method """
     return ("Hello HBNB!")
 
+
 @web_flask.route("/hbnb", strict_slashes=False)
 def hbnb_route():
     """ hbnb method """
     return ("HBNB")
+
 
 @web_flask.route("/c/<text>", strict_slashes=False)
 def C_route(text):
     """ c method """
     text = text.relace('_', ' ')
     return ('C' + ' ' + text)
+
 
 @web_flask.route("/python/<text>", strict_slashes=False)
 def python_route(text=None):
@@ -30,10 +33,12 @@ def python_route(text=None):
         text = text.relace('_', ' ')
     return ('python' + ' ' + text)
 
+
 @web_flask.route("/number/<int:n>", strict_slashes=False)
 def number_route(n):
     """ number method """
-    return ("{:d} is a number".format(n))        
+    return ("{:d} is a number".format(n))
+
 
 if __name__ == "__main__":
     web_flask.run(host='0.0.0.0', port=5000)

@@ -24,14 +24,12 @@ def C_route(text):
     return ('C' + ' ' + text)
 
 
+@web_flask.route('/python/', , strict_slashes=False)
 @web_flask.route("/python/<text>", strict_slashes=False)
-def python_route(text=None):
+def python_route(text='is cool'):
     """ python method """
-    if text is None:
-        text = 'is cool'
-    else:
-        text = text.relace('_', ' ')
-    return ('Python' + ' ' + text)
+    text = text.relace('_', ' ')
+    return ('Python ' + text)
 
 
 if __name__ == "__main__":

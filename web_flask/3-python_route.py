@@ -31,7 +31,7 @@ def python_route(text=None):
         text = 'is cool'
     else:
         text = text.relace('_', ' ')
-    return ('python' + ' ' + text)
+    return ('Python' + ' ' + text)
 
 
 if __name__ == "__main__":

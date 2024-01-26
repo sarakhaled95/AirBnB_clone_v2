@@ -24,7 +24,7 @@ def C_route(text):
     return ('C' + ' ' + text)
 
 
-@web_flask.route('/python/', strict_slashes=False)
+@web_flask.route('/python', strict_slashes=False)
 @web_flask.route("/python/<text>", strict_slashes=False)
 def python_route(text='is cool'):
     """ python method """

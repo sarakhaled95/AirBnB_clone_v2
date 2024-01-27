@@ -22,5 +22,6 @@ def remove_SQLalc_session(exception):
     """ close storage when tear down is executed """
     storage.close()
 
+
 if __name__ == '__main__':
     web_flask.run(host='0.0.0.0', port=5000)

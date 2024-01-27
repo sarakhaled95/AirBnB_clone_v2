@@ -8,6 +8,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+from models import storage
 from flask import Flask, render_template
 web_flask = Flask(__name__)
 classes = {"Amenity": Amenity, "City": City,
